@@ -60,4 +60,12 @@ public class Publicar {
 		return comentarios;
 	}
 
+	public void addComentario(Comentario comentario) {
+		comentarios.add(comentario);
+	}
+
+	public void removeComentario(Comentario comentario) {
+		comentarios.remove(comentario);
+	}
+
 }
