@@ -1,10 +1,13 @@
 package entities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Publicar {
+
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss ");
 
 	private Date momento;
 	private String titulo;
@@ -66,6 +69,20 @@ public class Publicar {
 
 	public void removeComentario(Comentario comentario) {
 		comentarios.remove(comentario);
+	}
+
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(titulo + "\n");
+		sb.append(likes);
+		sb.append(" Likes - ");
+		sb.append(sdf.format(momento) + "\n");
+		sb.append(comentario + "\n");
+		sb.append("Comentarios:\n");
+		for (Comentario c : comentarios) {
+			sb.append(c.getTexto() + "\n");
+		}
+		return sb.toString();
 	}
 
 }
